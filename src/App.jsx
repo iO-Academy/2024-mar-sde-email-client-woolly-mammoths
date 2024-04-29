@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Inbox from './components/Inbox'
 import Sent from './components/Sent'
 import Deleted from './components/Deleted'
-import Header from './components'
+import Header from './components/Header'
 
 function App() {
 
