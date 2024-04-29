@@ -1,18 +1,12 @@
-import { useState } from 'react'
+import React from 'react';
 
-function EmailItem({myStyle = "unread"}) {
+function EmailItem({ email }) {
+    const { name, subject, preview, date, read } = email;
 
-    let cs = 'bg-white p-[10px] border-2 border-black w-[300px] hover:bg-blue-500'
-    let name = "Name";
-    let subject = "Subject";
-    let preview = "Preview...";
-    let date = "DD/MM/YYYY";
-
-    if (myStyle === "read"){
-        cs = 'bg-gray-700 p-[10px] border-2 border-black text-white hover:bg-blue-500 '
+    let cs = 'bg-white p-[10px] border-2 border-black w-[300px] hover:bg-blue-500';
+    if (read) {
+        cs = 'bg-gray-700 p-[10px] border-2 border-black text-white hover:bg-blue-500';
     }
-
-
 
     return (
         <div className={cs}>
@@ -25,11 +19,9 @@ function EmailItem({myStyle = "unread"}) {
                 <div className='flex flex-col'>
                     <p>{date}</p>
                 </div>
-                
             </div>
-
         </div>
-    )
+    );
 }
 
-export default EmailItem
+export default EmailItem;

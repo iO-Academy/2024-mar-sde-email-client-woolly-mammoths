@@ -1,28 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+const SearchBar = ({ handleSearch }) => {
+    const handleInputChange = (event) => {
+        const searchQuery = event.target.value;
+        handleSearch(searchQuery);
+    };
 
-  const handleInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearch = () => {
-    // Implement your search functionality here
-    console.log("Searching for:", searchQuery);
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
-  );
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                onChange={handleInputChange}
+            />
+        </div>
+    );
 };
 
 export default SearchBar;
