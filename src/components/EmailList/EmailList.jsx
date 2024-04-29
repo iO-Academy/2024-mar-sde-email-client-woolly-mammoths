@@ -2,7 +2,7 @@ import EmailItem from "../EmailItem/EmailItem"
 import EmailString from "../EmailString"
 import { useEffect, useState } from "react"
 
-function EmmailList() {
+function EmailList() {
 
     const [emailString, setEmailString] = useState(false)
 
@@ -23,7 +23,6 @@ function EmmailList() {
     }
 
     fetchJSON();
-    
 
     return (
         <div className="overflow-scroll h-[600px] w-[400px] border-2 border-black ">
@@ -32,7 +31,7 @@ function EmmailList() {
             <div>
                 {emailString.data.map(email => {
                     return (
-                        <EmailItem data={email}/>
+                        <EmailItem data={email} name={email.name} subject={email.subject} body={email.body} date={email.date_created}/>
                     )
                 })}
             </div>
@@ -41,4 +40,4 @@ function EmmailList() {
     )
   }
   
-  export default EmmailList
+  export default EmailList
