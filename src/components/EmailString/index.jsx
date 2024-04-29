@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react"
 
 const EmailString =() => {
-    const [emailString, setEmailString] = useState(false)
+    
+    function fetchJSON() {
+        const [emailString, setEmailString] = useState(false)
 
-    useEffect(() => {
-        fetch("https://email-client-api.dev.io-academy.uk/emails")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setEmailString(data)
-        })
-    }, [])
+        useEffect(() => {
+            fetch("https://email-client-api.dev.io-academy.uk/emails")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setEmailString(data)
+            })
+        }, [])
+    }
+
+    fetchJSON();
+    
 
 return (
     <div>
