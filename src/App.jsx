@@ -5,13 +5,14 @@ import Navbar from './components/Navbar'
 import Inbox from './components/Inbox'
 import Sent from './components/Sent'
 import Deleted from './components/Deleted'
+import Header from './components'
 
 function App() {
 
   return (
     <>
     <BrowserRouter>
-    <div>Header Component</div>
+    <Header />
     <Navbar />
 
     <Routes>
