@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 function EmailItem({myStyle = "unread"}) {
 
+  
+
     let cs = 'bg-white p-[10px] border-2 border-black w-[300px] hover:bg-blue-500'
     let name = "Name";
     let subject = "Subject";
