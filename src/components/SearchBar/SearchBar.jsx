@@ -4,11 +4,12 @@ const SearchBar = ({ handleSearch }) => {
     const handleInputChange = (event) => {
         const searchQuery = event.target.value;
         handleSearch(searchQuery);
+        console.log("inputChange")
     };
 
     return (
         <div>
-            <input
+            <input 
                 type="text"
                 placeholder="Search..."
                 onChange={handleInputChange}

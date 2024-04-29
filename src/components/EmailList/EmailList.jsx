@@ -29,18 +29,20 @@ function EmailList() {
     const [filteredEmailItems, setFilteredEmailItems] = useState(emailString);
 
     const handleSearch = (searchQuery) => {
-        const filteredItems = emailItems.filter(email => {
+        const filteredItems = EmailString.filter(email => {
             return email.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.preview.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.date.includes(searchQuery);
+                email.date_created.includes(searchQuery);
         });
         setFilteredEmailItems(filteredItems);
+        setEmailString(filteredItems);
+        console.log("working");
     };
 
     return (
         <div>
-            <SearchBar handleSearch={handleSearch} />
+            <SearchBar handleSearch={handleSearch}/>
         
             <div className="overflow-scroll h-[600px] w-[400px] border-2 border-black ">
             {
