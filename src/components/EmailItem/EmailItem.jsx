@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react';
 
 function EmailItem({myStyle = "unread", data= null, name, subject, body, date}) {
 
@@ -15,11 +15,9 @@ function EmailItem({myStyle = "unread", data= null, name, subject, body, date}) 
                 <div className='flex flex-col'>
                     <p>{date}</p>
                 </div>
-                
             </div>
-
         </div>
-    )
+    );
 }
 
-export default EmailItem
+export default EmailItem;
