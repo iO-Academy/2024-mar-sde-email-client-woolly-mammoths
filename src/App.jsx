@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import './App.css'
+import EmailItem from './components/EmailItem/EmailItem'
 
 function App() {
 
   return (
     <>
-
+      <div>
+        <EmailList/>
+      </div>
     </>
   )
 }

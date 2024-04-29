@@ -1,11 +1,16 @@
 import { useState } from 'react'
-import './App.css'
 
-function EmailItem() {
+function EmailItem({myStyle = "unread"}) {
+
+    cs = 'bg-white p-[10px] border-2 border-black w-[300px]'
+
+    if (myStyle === "read"){
+        cs = 'bg-gray-300 p-[10px] border-2 border-black'
+    }
 
   return (
-    <div className='bg-gray-300 p-[10px]'>
-        
+    <div className={cs}>
+        <p>content</p>
 
     </div>
   )
