@@ -41,7 +41,7 @@ function EmailList() {
     };
 
     return (
-        <div>
+        <div className="pl-64">
             <SearchBar handleSearch={handleSearch}/>
         
             <div className="overflow-scroll h-[600px] w-[400px] border-2 border-black ">
