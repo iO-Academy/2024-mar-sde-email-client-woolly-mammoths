@@ -7,6 +7,7 @@ import Sent from './components/Sent'
 import Deleted from './components/Deleted'
 import Header from './components/Header'
 
+
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
     </Routes>
     </BrowserRouter>
     </>
+
   )
 }
 
