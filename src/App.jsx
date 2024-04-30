@@ -12,19 +12,21 @@ import NewEmail from './components/NewEmail'
 function App() {
 
   return (
-    <>
+    <div>
     <BrowserRouter>
     <Header />
+    <div className='flex'>
     <Navbar />
-
     <Routes>
       <Route path='/' element={<Inbox />} />
       <Route path='sent' element={<Sent />} />
       <Route path='/deleted' element={<Deleted />} />
       <Route path='/new-email' element={<NewEmail />} />
     </Routes>
+    </div>
+
     </BrowserRouter>
-    </>
+    </div>
 
   )
 }
