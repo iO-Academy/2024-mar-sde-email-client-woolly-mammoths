@@ -2,10 +2,10 @@ import React from 'react';
 
 function EmailItem({content, address, name, subject, body, date, id, myFunction, read}) {
 
-    let cs = 'bg-white p-[10px] border-2 border-black hover:bg-blue-500';
+    let cs = 'bg-gray-100 p-[10px] border-2 border-black hover:bg-blue-500 text-left';
 
     if (read == 1) {
-        cs = 'bg-gray-500 p-[10px] border-2 border-black hover:bg-blue-500';
+        cs = 'bg-gray-500 p-[10px] border-2 border-black hover:bg-blue-500 text-white text-left';
     }
 
     return (
@@ -17,7 +17,7 @@ function EmailItem({content, address, name, subject, body, date, id, myFunction,
                         <p>{subject}</p>
                         <p>{body}</p>
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col justify-start text-right'>
                         <p>{date}</p>
                     </div>
                 </div>
