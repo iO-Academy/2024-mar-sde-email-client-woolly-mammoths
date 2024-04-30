@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react';
 const Inbox = () => {
     return (
         <div className="flex">
-            <div className="w-2/4">
+            <div className="w-full">
                 <EmailList/>
             </div>
-            <div className="w-2/4">
-                <EmailString />
+            <div className="">
+                {/* <EmailString /> */}
             </div>
         </div>
     )
