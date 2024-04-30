@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = ({ handleSearch, handleClear }) => {
     const handleInputChange = (event) => {
         const searchQuery = event.target.value;
         handleSearch(searchQuery);
@@ -14,6 +14,7 @@ const SearchBar = ({ handleSearch }) => {
                 placeholder="Search..."
                 onChange={handleInputChange}
             />
+            <button onClick={handleClear}>Clear</button>
         </div>
     );
 };

@@ -12,7 +12,7 @@ function EmailList() {
             .then(data => {
                 setEmailString(data);
                 setFilteredEmailItems(data);
-                console.log("Email data:", data); // Log the fetched data
+                console.log("Email data:", data);
             })
             .catch(error => console.error('Error fetching emails:', error));
     }, []);
@@ -35,11 +35,15 @@ function EmailList() {
         console.log("Filtered Items:", filteredItems);
         setFilteredEmailItems(filteredItems);
     };
+
+    const handleClear = () => {
+        setFilteredEmailItems(emailString.data);
+    }
     
     
     return (
         <div>
-            <SearchBar handleSearch={handleSearch}/>
+            <SearchBar handleSearch={handleSearch} handleClear={handleClear}/>
         
             <div className="overflow-scroll h-[600px] w-[400px] border-2 border-black">
                 {filteredEmailItems.length > 0 ? (
