@@ -15,7 +15,7 @@ function EmailList() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                setEmailString(data)
+                setEmailString(data.data)
                 return(
                     emailString
                 )
@@ -40,6 +40,17 @@ function EmailList() {
         console.log("working");
     };
 
+    
+
+    function handleDelete(id) {
+        fetch("https://email-client-api.dev.io-academy.uk/emails/" + id, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            setEmailString (emailString.filter((email) => email.id !== id))
+        })
+    }
+    
     return (
         <div>
             <SearchBar handleSearch={handleSearch}/>
@@ -48,9 +59,9 @@ function EmailList() {
             {
                 emailString &&
                 <div>
-                    {emailString.data.map(email => {
+                    {emailString?.map(email => {
                         return (
-                            <EmailItem data={email} name={email.name} subject={email.subject} body={email.body} date={email.date_created}/>
+                            <EmailItem data={email} name={email.name} subject={email.subject} body={email.body} date={email.date_created} id={email.id} handleDelete={handleDelete}/>
                         )
                     })}
                 </div>

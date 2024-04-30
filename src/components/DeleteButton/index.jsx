@@ -1,9 +1,8 @@
-const DeleteButton = ({handleClick}) => {
-
-
+const DeleteButton = ({handleDelete, id}) => {
+   
     return (
 
-        <button className="bg-red-600 text-white rounded-sm" onClick={handleClick}>Delete</button>
+        <button className="bg-red-600 text-white rounded-sm" onClick={() => handleDelete(id)}>Delete</button>
 
     )
 }

@@ -6,12 +6,14 @@ import Inbox from './components/Inbox'
 import Sent from './components/Sent'
 import Deleted from './components/Deleted'
 import Header from './components/Header'
+import DeleteButton from './components/DeleteButton'
 
 
 function App() {
 
   return (
     <>
+    <DeleteButton />
     <BrowserRouter>
     <Header />
     <Navbar />

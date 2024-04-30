@@ -1,6 +1,7 @@
 import React from 'react';
+import DeleteButton from '../DeleteButton';
 
-function EmailItem({myStyle = "unread", data= null, name, subject, body, date}) {
+function EmailItem({myStyle = "unread", data= null, name, subject, body, date, id, handleDelete}) {
 
     let cs = 'bg-white p-[10px] border-2 border-black hover:bg-blue-500';
 
@@ -14,6 +15,10 @@ function EmailItem({myStyle = "unread", data= null, name, subject, body, date}) 
                 </div>
                 <div className='flex flex-col'>
                     <p>{date}</p>
+                </div>
+                <div>
+                    <DeleteButton id={id} handleDelete={handleDelete}/>
+
                 </div>
             </div>
         </div>
