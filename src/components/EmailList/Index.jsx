@@ -1,5 +1,4 @@
-import EmailItem from "../EmailItem/EmailItem";
-import SearchBar from "../SearchBar/SearchBar";
+import EmailItem from "../EmailItem/Index";
 import EmailString from "../EmailString"
 import { useEffect, useState } from "react"
 
@@ -42,8 +41,6 @@ function EmailList() {
 
     return (
         <div>
-            <SearchBar handleSearch={handleSearch}/>
-        
             <div className="overflow-scroll h-[720px] w-[400px]">
             {
                 emailString &&
