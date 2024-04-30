@@ -11,18 +11,20 @@ import Header from './components/Header'
 function App() {
 
   return (
-    <>
+    <div>
     <BrowserRouter>
     <Header />
+    <div className='flex'>
     <Navbar />
-
     <Routes>
       <Route path='/' element={<Inbox />} />
       <Route path='sent' element={<Sent />} />
       <Route path='/deleted' element={<Deleted />} />
     </Routes>
+    </div>
+
     </BrowserRouter>
-    </>
+    </div>
 
   )
 }
