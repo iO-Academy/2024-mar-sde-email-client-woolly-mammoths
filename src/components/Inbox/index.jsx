@@ -9,7 +9,7 @@ const Inbox = () => {
             <div className="w-2/4">
                 <EmailList />
             </div>
-            <div className="w-2/4">
+            <div className="">
                 
             </div>
         </div>

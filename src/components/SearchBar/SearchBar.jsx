@@ -8,8 +8,8 @@ const SearchBar = ({ handleSearch }) => {
     };
 
     return (
-        <div>
-            <input 
+        <div className='w-full'>
+            <input className='w-full rounded border border-gray-300 p-1 my-2'
                 type="text"
                 placeholder="Search..."
                 onChange={handleInputChange}
