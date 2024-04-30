@@ -6,6 +6,8 @@ import Inbox from './components/Inbox'
 import Sent from './components/Sent'
 import Deleted from './components/Deleted'
 import Header from './components/Header'
+import EmailList from './components/EmailList/EmailList'
+
 
 function App() {
 
@@ -21,7 +23,13 @@ function App() {
       <Route path='/deleted' element={<Deleted />} />
     </Routes>
     </BrowserRouter>
+      <div>
+        
+        <EmailList/>
+      
+      </div>
     </>
+
   )
 }
 
