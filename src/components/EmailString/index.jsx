@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 
-const EmailString =() => {
+const EmailString = () => {
+
+    const [emailString, setEmailString] = useState(false)
     
     function fetchJSON() {
-        const [emailString, setEmailString] = useState(false)
 
         useEffect(() => {
             fetch("https://email-client-api.dev.io-academy.uk/emails")
@@ -11,6 +12,9 @@ const EmailString =() => {
             .then(data => {
                 console.log(data)
                 setEmailString(data)
+                return(
+                    emailString
+                )
             })
         }, [])
     }
@@ -42,9 +46,6 @@ return (
                 })}
             </div>
         }
-
-
-
     </div>
 )
 }
