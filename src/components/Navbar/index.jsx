@@ -4,7 +4,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="flex flex-col bg-teal-400 w-1/12 h-full justify-start items-start">
+            <div className="flex flex-col bg-teal-400 h-full justify-start items-start">
                 <Link to='/new-email' className="pl-2 py-5 pr-5">New Email</Link>
                 <Link to='/' className="pl-2 py-5 pr-5">Inbox</Link>
                 <Link to='/sent' className="pl-2 py-5 pr-5">Sent</Link>
