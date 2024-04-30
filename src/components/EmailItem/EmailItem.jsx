@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function EmailItem({myStyle = "unread", data= null, name, subject, body, date}) {
-
-    let cs = 'bg-white p-[10px] border-2 border-black hover:bg-blue-500';
+function EmailItem({ name, subject, body, date }) {
+    const cs = 'bg-white p-[10px] border-2 border-black hover:bg-blue-500';
 
     return (
         <div className={cs}>
@@ -19,5 +19,12 @@ function EmailItem({myStyle = "unread", data= null, name, subject, body, date}) 
         </div>
     );
 }
+
+EmailItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    subject: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+};
 
 export default EmailItem;
