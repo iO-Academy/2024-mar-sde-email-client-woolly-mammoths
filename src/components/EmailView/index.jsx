@@ -32,7 +32,7 @@ const EmailView = ({eName, eDate, eAddress, eSubject, eBody}) => {
 
 return (
     <div>
-        <div className="border-t-2 border-b-2 mx-5 my-5 w-[850px] h-[500px]">
+        <div className="border-t-2 border-b-2 mx-5 my-5 w-[820px] h-[500px]">
             <div className="flex justify-between pt-5">
                 <h2 className="text-xl font-semibold">{name}</h2>
                 <div className="font-bold text-xs">
