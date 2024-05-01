@@ -5,6 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 function EmailList() {
     const [emailArray, setemailArray] = useState([]);
     const [filteredEmailItems, setFilteredEmailItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch("https://email-client-api.dev.io-academy.uk/emails")
@@ -12,6 +13,7 @@ function EmailList() {
             .then(data => {
                 setemailArray(data);
                 setFilteredEmailItems(data);
+                setLoading(false);
                 console.log("Email data:", data);
             })
             .catch(error => console.error('Error fetching emails:', error));
