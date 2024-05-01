@@ -3,14 +3,14 @@ import EmailItem from "../EmailItem";
 import SearchBar from "../SearchBar/SearchBar";
 
 function EmailList() {
-    const [emailString, setEmailString] = useState([]);
+    const [emailArray, setemailArray] = useState([]);
     const [filteredEmailItems, setFilteredEmailItems] = useState([]);
 
     useEffect(() => {
         fetch("https://email-client-api.dev.io-academy.uk/emails")
             .then(response => response.json())
             .then(data => {
-                setEmailString(data);
+                setemailArray(data);
                 setFilteredEmailItems(data);
                 console.log("Email data:", data);
             })
@@ -18,12 +18,12 @@ function EmailList() {
     }, []);
     
     const handleSearch = (searchQuery) => {
-        if (!Array.isArray(emailString.data)) {
-            console.error("Email data is not an array:", emailString.data);
+        if (!Array.isArray(emailArray.data)) {
+            console.error("Email data is not an array:", emailArray.data);
             return;
         }
         console.log("Search Query:", searchQuery);
-        const filteredItems = emailString.data.filter(email => {
+        const filteredItems = emailArray.data.filter(email => {
             console.log("Email:", email);
             const matchName = email.name.toLowerCase().includes(searchQuery.toLowerCase());
             const matchSubject = email.subject.toLowerCase().includes(searchQuery.toLowerCase());
@@ -37,7 +37,7 @@ function EmailList() {
     };
 
     const handleClear = () => {
-        setFilteredEmailItems(emailString.data);
+        setFilteredEmailItems(emailArray.data);
     }
     
     
