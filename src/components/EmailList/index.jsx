@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import EmailItem from "../EmailItem/EmailItem";
+import EmailItem from "../EmailItem";
 import SearchBar from "../SearchBar/SearchBar";
 
 function EmailList() {

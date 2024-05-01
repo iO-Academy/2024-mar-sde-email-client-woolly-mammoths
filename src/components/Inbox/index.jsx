@@ -1,4 +1,4 @@
-import EmailList from '../EmailList/EmailList'
+import EmailList from '../EmailList'
 
 
 
