@@ -1,14 +1,15 @@
-import EmailItem from "../EmailItem/EmailItem";
-import SearchBar from "../SearchBar/SearchBar";
+import EmailItem from "../EmailItem";
+import SearchBar from "../SearchBar";
 import EmailString from "../EmailString"
 import { useEffect, useState } from "react"
 import EmailView from "../EmailView";
 
 function EmailList() {
 
-    const [emailString, setEmailString] = useState(false)
+    const [emailString, setEmailString] = useState(false);
     const [emailID, setEmailID] = useState(0);
     const [emailRead, setEmailRead] = useState(0);
+    const [emailArray, setEmailArray] = useState([]);
 
     //To pass into email view
     const [emailAddress, setEmailAddress] = useState("");
@@ -21,9 +22,9 @@ function EmailList() {
     let eID = null;
 
     useEffect(() => {
-        console.log("email ID'd")
+        console.log("email ID'd");
         eID = emailID;
-    }, [emailID])
+    }, [emailID]);
 
 
     function fetchJSON() {
@@ -32,8 +33,10 @@ function EmailList() {
             fetch("https://email-client-api.dev.io-academy.uk/emails")
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                setEmailString(data)
+                console.log(data);
+                setEmailString(data);
+
+                setEmailArray(JSON.parse(JSON.stringify(data)));
                 return(
                     emailString
                 )
@@ -43,6 +46,20 @@ function EmailList() {
     }
 
     fetchJSON();
+
+    //THIS BIT
+    function setRead(id) {
+        console.log("data" + emailArray);
+        console.log("zero0");
+        emailArray.data.forEach(element => {
+        console.log("one1");
+        
+        if (element.id === id){
+            console.log("two2");
+            emailArray.read = 1;
+            }
+        })
+    }
 
     const [filteredEmailItems, setFilteredEmailItems] = useState(emailString);
 
@@ -78,10 +95,8 @@ function EmailList() {
         console.log('BODY: ' + event.currentTarget.dataset.body);
         setEmailBody(event.currentTarget.dataset.body);
 
-        event.currentTarget.dataset.read = 1;
+        setRead(event.currentTarget.dataset.id);
 
-
-        
     }
 
     return (
@@ -99,7 +114,6 @@ function EmailList() {
                                 <EmailItem data={email} address={email.email} name={email.name} subject={email.subject} body={email.body} date={email.date_created} id={email.id} myFunction={openEmail} read={email.read}/>
                             )
 
-                            
                         })}
                     </div>
                 }
