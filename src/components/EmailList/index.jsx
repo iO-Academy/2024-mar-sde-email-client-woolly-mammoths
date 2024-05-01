@@ -5,10 +5,10 @@ import EmailView from "../EmailView";
 
 function EmailList() {
 
-    const [emailsOverview, setEmailsOverview] = useState(false);
+    const [emailArray, setEmailArray] = useState(false);
     const [emailID, setEmailID] = useState(0);
     const [emailRead, setEmailRead] = useState(0);
-    const [emailArray, setEmailArray] = useState([]);
+    const [emailArrayB, setEmailArrayB] = useState([]);
 
     //To pass into email view
     const [emailAddress, setEmailAddress] = useState("");
@@ -33,11 +33,11 @@ function EmailList() {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setEmailsOverview(data);
+                setEmailArray(data);
 
-                setEmailArray(JSON.parse(JSON.stringify(data)));
+                setEmailArrayB(JSON.parse(JSON.stringify(data)));
                 return(
-                    emailsOverview
+                    emailArray
                 )
             })
         }, [])
@@ -48,29 +48,29 @@ function EmailList() {
 
     //THIS BIT
     function setRead(id) {
-        console.log("data" + emailArray);
+        console.log("data" + emailArrayB);
         console.log("zero0");
-        emailArray.data.forEach(element => {
+        emailArrayB.data.forEach(element => {
         console.log("one1");
         
         if (element.id === id){
             console.log("two2");
-            emailArray.read = 1;
+            emailArrayB.read = 1;
             }
         })
     }
 
-    const [filteredEmailItems, setFilteredEmailItems] = useState(emailsOverview);
+    const [filteredEmailItems, setFilteredEmailItems] = useState(emailArray);
 
     const handleSearch = (searchQuery) => {
-        const filteredItems = emailsOverview.filter(email => {
+        const filteredItems = emailArray.filter(email => {
             return email.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.preview.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.date_created.includes(searchQuery);
         });
         setFilteredEmailItems(filteredItems);
-        setemailsOverview(filteredItems);
+        setemailArray(filteredItems);
         console.log("working");
     };
 
@@ -105,9 +105,9 @@ function EmailList() {
             <div className="flex w-full justify-between">
                 <div className="overflow-scroll h-[680px] w-[400px] border-2 border-black translate-x-[150px]">
                 {
-                    emailsOverview &&
+                    emailArray &&
                     <div>
-                        {emailsOverview.data.map(email => {
+                        {emailArray.data.map(email => {
 
                             return (
                                 <EmailItem data={email} address={email.email} name={email.name} subject={email.subject} body={email.body} date={email.date_created} id={email.id} myFunction={openEmail} read={email.read}/>
