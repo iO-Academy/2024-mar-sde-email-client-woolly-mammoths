@@ -1,12 +1,11 @@
 import EmailItem from "../EmailItem";
 import SearchBar from "../SearchBar";
-import EmailString from "../EmailString"
 import { useEffect, useState } from "react"
 import EmailView from "../EmailView";
 
 function EmailList() {
 
-    const [emailString, setEmailString] = useState(false);
+    const [emailsOverview, setEmailsOverview] = useState(false);
     const [emailID, setEmailID] = useState(0);
     const [emailRead, setEmailRead] = useState(0);
     const [emailArray, setEmailArray] = useState([]);
@@ -34,11 +33,11 @@ function EmailList() {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setEmailString(data);
+                setEmailsOverview(data);
 
                 setEmailArray(JSON.parse(JSON.stringify(data)));
                 return(
-                    emailString
+                    emailsOverview
                 )
             })
         }, [])
@@ -61,17 +60,17 @@ function EmailList() {
         })
     }
 
-    const [filteredEmailItems, setFilteredEmailItems] = useState(emailString);
+    const [filteredEmailItems, setFilteredEmailItems] = useState(emailsOverview);
 
     const handleSearch = (searchQuery) => {
-        const filteredItems = EmailString.filter(email => {
+        const filteredItems = emailsOverview.filter(email => {
             return email.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.preview.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 email.date_created.includes(searchQuery);
         });
         setFilteredEmailItems(filteredItems);
-        setEmailString(filteredItems);
+        setemailsOverview(filteredItems);
         console.log("working");
     };
 
@@ -106,9 +105,9 @@ function EmailList() {
             <div className="flex w-full justify-between">
                 <div className="overflow-scroll h-[680px] w-[400px] border-2 border-black translate-x-[150px]">
                 {
-                    emailString &&
+                    emailsOverview &&
                     <div>
-                        {emailString.data.map(email => {
+                        {emailsOverview.data.map(email => {
 
                             return (
                                 <EmailItem data={email} address={email.email} name={email.name} subject={email.subject} body={email.body} date={email.date_created} id={email.id} myFunction={openEmail} read={email.read}/>
