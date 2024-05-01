@@ -1,25 +1,25 @@
-import EmailItem from "./EmailItem";
 import { useEffect, useState } from "react";
+import EmailItem from "../EmailItem/Index";
 
 function EmailList() {
-  const [emailsOverview, setEmailsOverview] = useState(false);
+  const [emailArray, setEmailArray] = useState(false);
 
   useEffect(() => {
     fetch("https://email-client-api.dev.io-academy.uk/emails")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setEmailsOverview(data);
-        return emailsOverview;
+        setEmailArray(data);
+        return emailArray;
       });
   }, []);
 
   return (
     <div>
-      <div className="overflow-scroll h-full w-full">
-        {emailsOverview && (
+      <div className="overflow-scroll max-h-screen w-full">
+        {emailArray && (
           <div>
-            {emailsOverview.data.map((email) => {
+            {emailArray.data.map((email) => {
               return (
                 <EmailItem
                   name={email.name}
