@@ -1,4 +1,4 @@
-import EmailItem from "../EmailItem/Index";
+import EmailItem from "./EmailItem";
 import { useEffect, useState } from "react";
 
 function EmailList() {
