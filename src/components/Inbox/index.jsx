@@ -1,4 +1,4 @@
-import EmailList from '../EmailList'
+import EmailList from "../EmailList/Index.jsx"
 
 const Inbox = () => {
     return (

@@ -8,7 +8,7 @@ function EmailList() {
     const [emailArray, setEmailArray] = useState(false);
     const [emailID, setEmailID] = useState(0);
     const [emailRead, setEmailRead] = useState(0);
-    const [emailArrayB, setEmailArrayB] = useState([]);
+    const [refreshJson, setRefreshJson] = useState(false);
 
     //To pass into email view
     const [emailAddress, setEmailAddress] = useState("");
@@ -25,39 +25,28 @@ function EmailList() {
         eID = emailID;
     }, [emailID]);
 
-
-    function fetchJSON() {
-        
-        useEffect(() => {
-            fetch("https://email-client-api.dev.io-academy.uk/emails")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                setEmailArray(data);
-
-                setEmailArrayB(JSON.parse(JSON.stringify(data)));
-                return(
-                    emailArray
-                )
-            })
-        }, [])
-
-    }
-
-    fetchJSON();
-
-    //THIS BIT
-    function setRead(id) {
-        console.log("data" + emailArrayB);
-        console.log("zero0");
-        emailArrayB.data.forEach(element => {
-        console.log("one1");
-        
-        if (element.id === id){
-            console.log("two2");
-            emailArrayB.read = 1;
-            }
+    useEffect(() => {
+        fetch("https://email-client-api.dev.io-academy.uk/emails")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            setEmailArray(data);
+            setRefreshJson(false);
+            return(
+                emailArray
+            )
         })
+    }, [refreshJson])
+
+
+
+    //SETS EMAIL TO READ
+    function setRead(id) {
+        fetch("https://email-client-api.dev.io-academy.uk/emails/" + id, {
+            method: "PUT"
+        })
+        setRefreshJson(true);
+        
     }
 
     const [filteredEmailItems, setFilteredEmailItems] = useState(emailArray);
