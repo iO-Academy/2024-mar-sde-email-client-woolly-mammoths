@@ -77,6 +77,10 @@ function EmailList() {
         setEmailSubject(event.currentTarget.dataset.subject);
         console.log('BODY: ' + event.currentTarget.dataset.body);
         setEmailBody(event.currentTarget.dataset.body);
+
+        event.currentTarget.dataset.read = 1;
+
+
         
     }
 
@@ -106,7 +110,8 @@ function EmailList() {
                 </div>
             </div>
         </div>
-    )
-  }
-  
-  export default EmailList
+    ) 
+    
+}  
+
+export default EmailList
