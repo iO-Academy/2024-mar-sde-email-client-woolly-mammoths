@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import EmailList from "../EmailList/EmailList";
 import "./styles.css";
 import { useState } from "react";
+import EmailList from "../EmailList/Index";
 
 const NewEmail = () => {
   const [receiverName, setReceiverName] = useState(null);

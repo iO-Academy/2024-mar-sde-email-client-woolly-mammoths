@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom"
+import "./styles.css";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ isOpen }) => {
+  const openClass = isOpen ? "open" : "";
 
-    return (
-        <div>
-            <div className="flex flex-col bg-teal-400 h-full justify-start items-start">
-                <Link to='/new-email' className="pl-2 py-5 pr-5">New Email</Link>
-                <Link to='/' className="pl-2 py-5 pr-5">Inbox</Link>
-                <Link to='/sent' className="pl-2 py-5 pr-5">Sent</Link>
-                <Link to='/deleted' className="pl-2 py-5 pr-5">Deleted</Link>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className={`menu ${openClass}`}>
+      <Link to='/new-email' className="pl-2 py-5 pr-5">New Email</Link>
+      <Link to="/" className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">
+        Inbox
+      </Link>
+      <p className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">Sent</p>
+      <p className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">Deleted</p>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

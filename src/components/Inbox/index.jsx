@@ -1,19 +1,12 @@
-import EmailList from '../EmailList/EmailList'
-
-
-
+import EmailList from "../EmailList/Index";
 
 const Inbox = () => {
-    return (
-        <div className="flex">
-            <div className="w-2/4">
-                <EmailList />
-            </div>
-            <div className="">
-                
-            </div>
-        </div>
-    )
-}
 
-export default Inbox
+  return (
+    <div className="w-full md:w-1/3">
+      <EmailList />
+    </div>
+  );
+};
+
+export default Inbox;
