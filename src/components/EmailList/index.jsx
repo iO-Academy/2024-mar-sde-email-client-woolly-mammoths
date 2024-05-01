@@ -75,26 +75,37 @@ function EmailList() {
     };
 
     const openEmail = (event) => {
-        console.log('ID: ' + event.currentTarget.dataset.id);
-        console.log('DATA: ' + event.currentTarget.dataset.content)
-        setEmailID(event.currentTarget.dataset.id);
-        setEmailData(event.currentTarget.dataset.content);
-        console.log('READ: ' + event.currentTarget.dataset.read);
-        setEmailRead(event.currentTarget.dataset.read);
-
-        //for EmailView
-        console.log('NAME: ' + event.currentTarget.dataset.name);
-        setEmailName(event.currentTarget.dataset.name);
-        console.log('DATE: ' + event.currentTarget.dataset.date);
-        setEmailDate(event.currentTarget.dataset.date);
-        console.log('ADDRESS: ' + event.currentTarget.dataset.address);
-        setEmailAddress(event.currentTarget.dataset.address);
-        console.log('SUBJECT: ' + event.currentTarget.dataset.subject);
-        setEmailSubject(event.currentTarget.dataset.subject);
-        console.log('BODY: ' + event.currentTarget.dataset.body);
-        setEmailBody(event.currentTarget.dataset.body);
+        
 
         setRead(event.currentTarget.dataset.id);
+
+        if ((emailBody === "") || (emailBody != event.currentTarget.dataset.body)){
+            console.log('ID: ' + event.currentTarget.dataset.id);
+            console.log('DATA: ' + event.currentTarget.dataset.content)
+            setEmailID(event.currentTarget.dataset.id);
+            setEmailData(event.currentTarget.dataset.content);
+            console.log('READ: ' + event.currentTarget.dataset.read);
+            setEmailRead(event.currentTarget.dataset.read);
+
+            //for EmailView
+            console.log('NAME: ' + event.currentTarget.dataset.name);
+            setEmailName(event.currentTarget.dataset.name);
+            console.log('DATE: ' + event.currentTarget.dataset.date);
+            setEmailDate(event.currentTarget.dataset.date);
+            console.log('ADDRESS: ' + event.currentTarget.dataset.address);
+            setEmailAddress(event.currentTarget.dataset.address);
+            console.log('SUBJECT: ' + event.currentTarget.dataset.subject);
+            setEmailSubject(event.currentTarget.dataset.subject);
+            console.log('BODY: ' + event.currentTarget.dataset.body);
+            setEmailBody(event.currentTarget.dataset.body);
+        }
+        else {
+            setEmailName("");
+            setEmailDate("");
+            setEmailAddress("");
+            setEmailSubject("");
+            setEmailBody("");
+        }
 
     }
 
@@ -108,11 +119,9 @@ function EmailList() {
                     emailArray &&
                     <div>
                         {emailArray.data.map(email => {
-
                             return (
                                 <EmailItem data={email} address={email.email} name={email.name} subject={email.subject} body={email.body} date={email.date_created} id={email.id} myFunction={openEmail} read={email.read}/>
                             )
-
                         })}
                     </div>
                 }
