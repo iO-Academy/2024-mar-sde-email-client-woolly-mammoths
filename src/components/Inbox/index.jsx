@@ -1,7 +1,4 @@
 import EmailList from '../EmailList'
-import EmailString from '../EmailString'
-import { useEffect, useState } from 'react';
-
 
 const Inbox = () => {
     return (

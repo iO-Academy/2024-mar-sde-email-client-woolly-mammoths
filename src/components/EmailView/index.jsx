@@ -1,34 +1,10 @@
-import { useEffect, useState } from "react"
-
 const EmailView = ({eName, eDate, eAddress, eSubject, eBody}) => {
-
-    const [emailString, setEmailString] = useState(false)
-    
 
     let name = eName;
     let date = eDate;
     let address = eAddress;
     let subject = eSubject;
     let body = eBody;
-
-
-    function fetchJSON() {
-
-        useEffect(() => {
-            fetch("https://email-client-api.dev.io-academy.uk/emails")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                setEmailString(data)
-                return(
-                    emailString
-                )
-            })
-        }, [])
-    }
-
-    fetchJSON();
-
 
 return (
     <div>

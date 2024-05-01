@@ -18,8 +18,6 @@ function EmailList() {
     const [emailBody, setEmailBody] = useState("");
 
     const [emailData, setEmailData] = useState([]);
-
-    const emailItems = [];
     let eID = null;
 
     useEffect(() => {
