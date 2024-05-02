@@ -15,11 +15,15 @@ function EmailList() {
     const [emailName, setEmailName] = useState("");
     const [emailDate, setEmailDate] = useState("");
     const [emailBody, setEmailBody] = useState("");
-    const [emailMobile, setEmailMobile] = useState("");
 
     const [buttonClass, setButtonClass] = useState("hidden");
     
     const [emailData, setEmailData] = useState([]);
+
+    const [mobileView, setMobileView] = useState(false);
+    const [emailViewHidden, setEmailViewHidden] = useState(false);
+    const [emailListHidden, setEmailListHidden] = useState(false);
+    const [emailListClasses, setEmailListClasses] = useState("flex w-full justify-between");
    
     useEffect(() => {
         fetch("https://email-client-api.dev.io-academy.uk/emails")
@@ -87,13 +91,34 @@ function EmailList() {
         setButtonClass("hidden");
     }
 
+    //MOBILE VIEW
+    useEffect(() => {
+        if (visualViewport.width < 768){
+            setEmailViewHidden(emailBody == "");
+            setEmailListHidden(!(emailBody == ""));
+            //fixes emailView display on mobile
+            setEmailListClasses("w-full h-screen");
+        }
+        else{
+            setEmailViewHidden(false);
+            setEmailListHidden(false);
+            setEmailListClasses("flex w-full justify-between h-screen");
+        }
+
+        console.log("Screen Width: " + visualViewport.width);
+        console.log("EmailViewHidden:" + emailViewHidden);
+        console.log("EmailListHidden:" + emailListHidden);
+        
+    }, [mobileView, buttonClass])
+
     return (
         <div>
         
-            <div className="flex w-full justify-between">
-                <div className="overflow-scroll max-h-screen w-2/6">
+            <div className={emailListClasses}>
+                <div className="w-full md:w-2/6 overflow-scroll max-h-screen">
                 {
-                    emailArray &&
+                
+                    (emailArray && !emailListHidden) &&
                     <div>
                         {emailArray.data.map(email => {
                             return (
@@ -104,7 +129,7 @@ function EmailList() {
                 }
                 </div>
 
-                <EmailView eName={emailName} eDate={emailDate} eAddress={emailAddress}  eSubject={emailSubject} eBody={emailBody} myFunction={closeEmail} buttonClass={buttonClass}/>
+                <EmailView eName={emailName} eDate={emailDate} eAddress={emailAddress}  eSubject={emailSubject} eBody={emailBody} myFunction={closeEmail} buttonClass={buttonClass} hidden={emailViewHidden}/>
                 
             </div>
         </div>

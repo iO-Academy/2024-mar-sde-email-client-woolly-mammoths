@@ -1,7 +1,15 @@
-const EmailView = ({eName, eDate, eAddress, eSubject, eBody, myFunction, buttonClass}) => {
+import "./style.css";
+
+const EmailView = ({eName, eDate, eAddress, eSubject, eBody, myFunction, buttonClass, hidden}) => {
+
+let cl = "mx-5 my-5 md:w-4/6 h-fit"
+
+if (hidden == true){
+    cl = "mx-5 my-5 h-fit hidden"
+}
 
 return (
-    <div className="mx-5 my-5 w-4/6 h-fit">
+    <div className={cl}>
         <button onClick={myFunction} className={buttonClass}>CLOSE</button>
         <div className="border-t-2 border-b-2">
             <div className="flex justify-between pt-3">
