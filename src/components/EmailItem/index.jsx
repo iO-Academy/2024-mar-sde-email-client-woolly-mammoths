@@ -1,33 +1,24 @@
 import React, { useState } from "react";
 
-function EmailItem({
-  content,
-  address,
-  name,
-  subject,
-  body,
-  date,
-  id,
-  myFunction,
-  read,
-}) {
-  const [dateObj, setDateObj] = useState(new Date(date).toLocaleDateString());
+function EmailItem({ data, setCurrentId, setRead }) {
+  const [dateObj, setDateObj] = useState(
+    new Date(data.date_created).toLocaleDateString()
+  );
 
   const readClassNames =
-    read === "1" ? "bg-slate-50 text-black" : "bg-gray-500 text-white";
+    data.read === "1" ? "bg-slate-50 text-black" : "bg-gray-500 text-white";
+
+  const handleClick = () => {
+    setCurrentId(data.id);
+    setRead(data.id);
+    console.log(data.date)
+  };
 
   return (
     <button
-      id={id}
-      onClick={myFunction}
-      data-id={id}
-      data-content={content}
-      data-address={address}
-      data-name={name}
-      data-subject={subject}
-      data-body={body}
-      data-date={date}
-      data-read={read}
+      id={data.id}
+      onClick={handleClick}
+      data-id={data.id}
       className="w-full"
     >
       <div
@@ -35,9 +26,9 @@ function EmailItem({
       >
         <div className="flex justify-between">
           <div className="flex flex-col text-left">
-            <p className="text-xl font-bold">{name}</p>
-            <p>{subject}</p>
-            <p>{body}</p>
+            <p className="text-xl font-bold">{data.name}</p>
+            <p>{data.subject}</p>
+            <p>{data.body}</p>
           </div>
           <div className="flex flex-col text-right">
             <p className="font-bold">{dateObj}</p>
