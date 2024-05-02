@@ -22,10 +22,14 @@ function EmailList() {
 
     //Mobile View
     const [mobileView, setMobileView] = useState(false);
-    // const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
     const [emailViewHidden, setEmailViewHidden] = useState(false);
     const [emailListHidden, setEmailListHidden] = useState(false);
     const [emailListClasses, setEmailListClasses] = useState("flex w-full justify-between");
+
+    //For fullheight adjusted for header - Works at any screen height
+    const hh = (visualViewport.height - 64);
+    const [screenHeightAdj, setScreenHeightAdj] = useState("w-full md:w-2/6 overflow-scroll h-["+hh+"px]");
+
    
     useEffect(() => {
         fetch("https://email-client-api.dev.io-academy.uk/emails")
@@ -99,7 +103,7 @@ function EmailList() {
             setEmailViewHidden(emailBody == "");
             setEmailListHidden(!(emailBody == ""));
             //fixes emailView display on mobile
-            setEmailListClasses("w-full h-screen");
+            setEmailListClasses("w-full h-[630px]");
         }
         else{
             setEmailViewHidden(false);
@@ -117,7 +121,7 @@ function EmailList() {
         <div>
         
             <div className={emailListClasses}>
-                <div className="w-full md:w-2/6 overflow-scroll max-h-screen">
+                <div className={screenHeightAdj}>
                 {
                 
                     (emailArray && !emailListHidden) &&
