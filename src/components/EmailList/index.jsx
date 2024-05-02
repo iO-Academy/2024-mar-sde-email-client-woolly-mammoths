@@ -1,5 +1,4 @@
 import EmailItem from "../EmailItem";
-import SearchBar from "../SearchBar";
 import { useEffect, useState } from "react"
 import EmailView from "../EmailView";
 
@@ -100,10 +99,9 @@ function EmailList() {
 
     return (
         <div>
-            <SearchBar handleSearch={handleSearch}/>
         
             <div className="flex w-full justify-between">
-                <div className="overflow-scroll h-[680px] w-[400px] border-2 border-black translate-x-[150px]">
+                <div className="overflow-scroll max-h-screen w-2/6 border-2 border-black">
                 {
                     emailArray &&
                     <div>
@@ -116,9 +114,8 @@ function EmailList() {
                 }
                 </div>
 
-                <div>
-                    <EmailView eName={emailName} eDate={emailDate} eAddress={emailAddress}  eSubject={emailSubject} eBody={emailBody}/>
-                </div>
+                <EmailView eName={emailName} eDate={emailDate} eAddress={emailAddress}  eSubject={emailSubject} eBody={emailBody}/>
+                
             </div>
         </div>
     ) 

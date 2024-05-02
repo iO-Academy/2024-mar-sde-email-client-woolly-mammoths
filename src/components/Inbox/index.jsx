@@ -6,11 +6,8 @@ const Inbox = () => {
             <div className="w-full">
                 <EmailList/>
             </div>
-            <div className="">
-                {/* <EmailString /> */}
-            </div>
         </div>
-    )
+    );
 }
 
-export default Inbox
+export default Inbox;
