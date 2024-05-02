@@ -101,7 +101,7 @@ function EmailList() {
         <div>
         
             <div className="flex w-full justify-between">
-                <div className="overflow-scroll max-h-screen w-2/6 border-2 border-black">
+                <div className="overflow-scroll max-h-screen w-2/6">
                 {
                     emailArray &&
                     <div>
