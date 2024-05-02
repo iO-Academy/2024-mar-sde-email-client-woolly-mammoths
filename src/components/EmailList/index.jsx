@@ -99,12 +99,12 @@ function EmailList() {
             setEmailViewHidden(emailBody == "");
             setEmailListHidden(!(emailBody == ""));
             //fixes emailView display on mobile
-            setEmailListClasses("w-full h-screen");
+            setEmailListClasses("w-full h-[630px");
         }
         else{
             setEmailViewHidden(false);
             setEmailListHidden(false);
-            setEmailListClasses("flex w-full justify-between h-screen");
+            setEmailListClasses("flex w-full justify-between h-[630px]");
         }
 
         console.log("Screen Width: " + visualViewport.width);
@@ -117,7 +117,7 @@ function EmailList() {
         <div>
         
             <div className={emailListClasses}>
-                <div className="w-full md:w-2/6 overflow-scroll max-h-screen">
+                <div className="w-full md:w-2/6 overflow-scroll max-h-[630px]">
                 {
                 
                     (emailArray && !emailListHidden) &&
