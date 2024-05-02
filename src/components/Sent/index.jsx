@@ -4,7 +4,7 @@ const Sent = () => {
     return (
         <div className="flex">
             <div className="w-2/4">
-                <SentList />
+                <SentList  />
             </div>
             <div className="">
                 

@@ -1,5 +1,5 @@
 import React from 'react';
-import SentEmailView from '../SentEmailView';
+
 
 function EmailSentItem({content, address, name, subject, body, date, id, handleOpen, read}) {
 
@@ -12,10 +12,11 @@ function EmailSentItem({content, address, name, subject, body, date, id, handleO
     
 
     return (
-        <button id={id} onClick={openSentEmail} data-id={id} data-content={content} data-address={address} data-name={name} data-subject={subject} data-body={body} data-date={date} data-read={read}>
+        <button id={id} onClick={handleOpen} data-id={id} data-content={content} data-address={address} data-name={name} data-subject={subject} data-body={body} data-date={date} data-read={read}>
             <div className={cs}>
                 <div className='flex justify-between'>
                     <div className='flex flex-col'>
+                    <button onClick={() => handleOpen(id)}></button>
                         <p>{name}</p>
                         <p>{subject}</p>
                         <p>{body}</p>
