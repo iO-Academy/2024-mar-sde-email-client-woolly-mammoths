@@ -43,20 +43,6 @@ function EmailList() {
         
     }
 
-    const [filteredEmailItems, setFilteredEmailItems] = useState(emailArray);
-
-    const handleSearch = (searchQuery) => {
-        const filteredItems = emailArray.filter(email => {
-            return email.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.preview.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.date_created.includes(searchQuery);
-        });
-        setFilteredEmailItems(filteredItems);
-        setemailArray(filteredItems);
-        console.log("working");
-    };
-
     const openEmail = (event) => {
         
 
