@@ -20,7 +20,9 @@ function EmailList() {
     
     const [emailData, setEmailData] = useState([]);
 
+    //Mobile View
     const [mobileView, setMobileView] = useState(false);
+    // const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
     const [emailViewHidden, setEmailViewHidden] = useState(false);
     const [emailListHidden, setEmailListHidden] = useState(false);
     const [emailListClasses, setEmailListClasses] = useState("flex w-full justify-between");
