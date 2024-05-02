@@ -17,6 +17,8 @@ function EmailList() {
     const [emailBody, setEmailBody] = useState("");
     const [emailMobile, setEmailMobile] = useState("");
 
+    const [buttonClass, setButtonClass] = useState("hidden");
+    
     const [emailData, setEmailData] = useState([]);
    
     useEffect(() => {
@@ -67,15 +69,22 @@ function EmailList() {
             setEmailSubject(event.currentTarget.dataset.subject);
             console.log('BODY: ' + event.currentTarget.dataset.body);
             setEmailBody(event.currentTarget.dataset.body);
+
+            setButtonClass("");
         }
         else {
-            setEmailName("");
-            setEmailDate("");
-            setEmailAddress("");
-            setEmailSubject("");
-            setEmailBody("");
+            closeEmail();
         }
 
+    }
+
+    function closeEmail() {
+        setEmailName("");
+        setEmailDate("");
+        setEmailAddress("");
+        setEmailSubject("");
+        setEmailBody("");
+        setButtonClass("hidden");
     }
 
     return (
@@ -95,7 +104,7 @@ function EmailList() {
                 }
                 </div>
 
-                <EmailView eName={emailName} eDate={emailDate} eAddress={emailAddress}  eSubject={emailSubject} eBody={emailBody}/>
+                <EmailView eName={emailName} eDate={emailDate} eAddress={emailAddress}  eSubject={emailSubject} eBody={emailBody} myFunction={closeEmail} buttonClass={buttonClass}/>
                 
             </div>
         </div>
