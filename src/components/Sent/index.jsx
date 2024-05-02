@@ -1,15 +1,19 @@
+import EmailList from '../EmailList/EmailList'
 
 const Sent = () => {
-    return (
-        <div>
-            <p>Sent Page</p>
-            <p>show me some stff
-            </p>
-            <p>keep adding
-            </p>
-            <p>hope it shows</p>
-        </div>
-    )
-}
-
+        return (
+            <div className="flex">
+                <div className="w-2/4">
+                    
+                </div>
+                <div className="">
+                    
+                </div>
+            </div>
+        )
+        }
 export default Sent
+
+
+
+
