@@ -24,22 +24,6 @@ function EmailList() {
 
     }
 
-    fetchJSON();
-
-    const [filteredEmailItems, setFilteredEmailItems] = useState(emailString);
-
-    const handleSearch = (searchQuery) => {
-        const filteredItems = EmailString.filter(email => {
-            return email.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.preview.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                email.date_created.includes(searchQuery);
-        });
-        setFilteredEmailItems(filteredItems);
-        setEmailString(filteredItems);
-        console.log("working");
-    };
-
     return (
         <div className="">
             <SearchBar handleSearch={handleSearch}/>
