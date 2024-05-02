@@ -15,15 +15,10 @@ function EmailList() {
     const [emailName, setEmailName] = useState("");
     const [emailDate, setEmailDate] = useState("");
     const [emailBody, setEmailBody] = useState("");
+    const [emailMobile, setEmailMobile] = useState("");
 
     const [emailData, setEmailData] = useState([]);
-    let eID = null;
-
-    useEffect(() => {
-        console.log("email ID'd");
-        eID = emailID;
-    }, [emailID]);
-
+   
     useEffect(() => {
         fetch("https://email-client-api.dev.io-academy.uk/emails")
         .then(response => response.json())
