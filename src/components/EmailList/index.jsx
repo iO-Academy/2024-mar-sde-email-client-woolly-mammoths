@@ -15,16 +15,8 @@ function EmailList() {
     const [emailName, setEmailName] = useState("");
     const [emailDate, setEmailDate] = useState("");
     const [emailBody, setEmailBody] = useState("");
-    const [buttonClass, setButtonClass] = useState("hidden");
-    
     const [emailData, setEmailData] = useState([]);
-    let eID = null;
-
-    useEffect(() => {
-        console.log("email ID'd");
-        eID = emailID;
-    }, [emailID]);
-
+   
     useEffect(() => {
         fetch("https://email-client-api.dev.io-academy.uk/emails")
         .then(response => response.json())
@@ -109,7 +101,7 @@ function EmailList() {
         <div>
         
             <div className="flex w-full justify-between">
-                <div className="overflow-scroll max-h-screen w-2/6 border-2 border-black">
+                <div className="overflow-scroll max-h-screen w-2/6">
                 {
                     emailArray &&
                     <div>
