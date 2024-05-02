@@ -1,16 +1,11 @@
-import SentList from '../SentList'
+import SentList from "../SentList";
 
 const Sent = () => {
-    return (
-        <div className="flex">
-            <div className="w-2/4">
-                <SentList />
-            </div>
-            <div className="">
-                
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="w-full md:w-1/3">
+      <SentList />
+    </div>
+  );
+};
 
-export default Sent
+export default Sent;

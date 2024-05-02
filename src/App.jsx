@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Inbox from "./components/Inbox";
 import Header from "./components/Header";
 import NewEmail from './components/NewEmail';
+import Sent from './components/Sent'
 import { useState } from "react";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Inbox />} />
           <Route path='/new-email' element={<NewEmail />} />
+          <Route path="/sent" element={<Sent />} />
         </Routes>
       </div>
     </BrowserRouter>
