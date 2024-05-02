@@ -7,7 +7,8 @@ const EmailView = ({eName, eDate, eAddress, eSubject, eBody}) => {
     let body = eBody;
 
 return (
-    <div className="border-t-2 border-b-2 mx-5 my-5 w-4/6">
+
+    <div className="border-t-2 border-b-2 mx-5 my-5 w-full">
         <div className="flex justify-between pt-5">
             <h2 className="text-xl font-semibold">{name}</h2>
             <div className="font-bold text-xs">
@@ -20,6 +21,7 @@ return (
             {body}
         </div>
     </div>
+    
 )
 }
 
