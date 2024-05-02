@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function EmailSentItem({content, address, name, subject, body, date, id, handleOpen, read}) {
+function EmailSentItem({content, address, name, subject, body, date, id}) {
 
     let cs = 'bg-gray-100 p-[10px] border-2 border-black hover:bg-blue-500 text-left';
     // let isRead = 'UNREAD';
@@ -12,11 +12,10 @@ function EmailSentItem({content, address, name, subject, body, date, id, handleO
     
 
     return (
-        <button id={id} onClick={handleOpen} data-id={id} data-content={content} data-address={address} data-name={name} data-subject={subject} data-body={body} data-date={date} data-read={read}>
             <div className={cs}>
                 <div className='flex justify-between'>
                     <div className='flex flex-col'>
-                    <button onClick={() => handleOpen(id)}></button>
+                    
                         <p>{name}</p>
                         <p>{subject}</p>
                         <p>{body}</p>
@@ -27,7 +26,6 @@ function EmailSentItem({content, address, name, subject, body, date, id, handleO
                     </div>
                 </div>
             </div>
-        </button>
     );
 }
 
