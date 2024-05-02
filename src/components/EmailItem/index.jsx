@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 
-function EmailItem({
-  data,
-  setCurrentId,
-}) {
-  const [dateObj, setDateObj] = useState(new Date(data.date).toLocaleDateString());
+function EmailItem({ data, setCurrentId, setRead }) {
+  const [dateObj, setDateObj] = useState(
+    new Date(data.date_created).toLocaleDateString()
+  );
 
   const readClassNames =
     data.read === "1" ? "bg-slate-50 text-black" : "bg-gray-500 text-white";
 
-    const handleClick = () => {
-      setCurrentId(data.id)
-    }
+  const handleClick = () => {
+    setCurrentId(data.id);
+    setRead(data.id);
+    console.log(data.date)
+  };
 
   return (
     <button
       id={data.id}
       onClick={handleClick}
       data-id={data.id}
-
       className="w-full"
     >
       <div
