@@ -1,5 +1,4 @@
-
-import SentEmailItem from "../SentEmailItem"
+import SentEmailItem from "../SentEmailItem";
 import { useEffect, useState } from "react";
 import SentEmailView from "../SentEmailView";
 
@@ -10,7 +9,6 @@ function SentEmailList() {
   const [emailItemWidth, setEmailItemWidth] = useState("w-full");
   const [emailViewWidth, setEmailViewWidth] = useState("w-0");
   const [buttonClass, setButtonClass] = useState("hidden");
-
 
   useEffect(() => {
     fetch("https://email-client-api.dev.io-academy.uk/emails/sent")
@@ -74,4 +72,3 @@ function SentEmailList() {
 }
 
 export default SentEmailList;
-

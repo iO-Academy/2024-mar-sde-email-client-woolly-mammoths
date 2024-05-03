@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-function SentEmailItem({ data,
+function SentEmailItem({
+  data,
   setSentCurrentId,
   setRead,
   setEmailViewWidth,
   setEmailItemWidth,
   emailItemWidth,
-  setButtonClass
+  setButtonClass,
 }) {
   const [dateObj, setDateObj] = useState(
     new Date(data.date_created).toLocaleDateString()

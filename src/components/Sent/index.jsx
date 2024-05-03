@@ -1,5 +1,5 @@
 
-import SentList from "../SentList/index.jsx"
+import SentList from "../SentEmailList/index.jsx"
 
 const Sent = () => {
     return (
