@@ -1,8 +1,8 @@
-import EmailList from "../EmailList/Index";
+import EmailList from "../EmailList/Index.jsx";
 
 const Inbox = () => {
   return (
-    <div className="w-full md:w-1/3">
+    <div className="w-full">
       <EmailList />
     </div>
   );
