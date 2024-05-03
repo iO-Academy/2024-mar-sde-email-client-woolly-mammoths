@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const SentEmailView = ({ id }) => {
+const SentEmailView = ({ id, closeEmail, buttonClass }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -13,6 +13,16 @@ const SentEmailView = ({ id }) => {
   }, [id]);
 
   return (
+    <div>
+      <div className="flex justify-end">
+        <button
+          onClick={closeEmail}
+          className={`${buttonClass} bg-green-400 px-2 py-1 mr-5 my-3 rounded`}
+        >
+          Close
+        </button>
+      </div>
+
     <div className="border-t-2 border-b-2 mx-5 my-5 w-4/6 h-fit">
       {data && (
         <>
@@ -27,6 +37,7 @@ const SentEmailView = ({ id }) => {
           <div className="pt-8 pb-2">{data.body}</div>
         </>
       )}
+    </div>
     </div>
   );
 };

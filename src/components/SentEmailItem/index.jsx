@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
-function SentEmailItem({ data, setSentCurrentId}) {
+function SentEmailItem({ data,
+  setSentCurrentId,
+  setRead,
+  setEmailViewWidth,
+  setEmailItemWidth,
+  emailItemWidth,
+  setButtonClass
+}) {
   const [dateObj, setDateObj] = useState(
     new Date(data.date_created).toLocaleDateString()
   );
@@ -11,7 +18,9 @@ function SentEmailItem({ data, setSentCurrentId}) {
   const handleClick = () => {
     setSentCurrentId(data.id);
     setRead(data.id);
-    console.log(data.date)
+    setEmailItemWidth("w-0");
+    setEmailViewWidth("w-full");
+    setButtonClass("block");
   };
 
   return (
@@ -19,7 +28,7 @@ function SentEmailItem({ data, setSentCurrentId}) {
       id={data.id}
       onClick={handleClick}
       data-id={data.id}
-      className="w-full"
+      className={`${emailItemWidth} md:w-full`}
     >
       <div
         className={`${readClassNames} p-2.5 border-b border-r border-gray-200 hover:bg-blue-500`}

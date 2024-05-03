@@ -7,7 +7,7 @@ function EmailItem({
   setEmailViewWidth,
   setEmailItemWidth,
   emailItemWidth,
-  setButtonClass,
+  setButtonClass
 }) {
   const [dateObj, setDateObj] = useState(
     new Date(data.date_created).toLocaleDateString()
