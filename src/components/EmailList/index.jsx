@@ -35,7 +35,7 @@ function EmailList() {
   }
 
   return (
-    <div>
+    <div className="z-10">
       <div className="flex">
         <div className="md:w-2/6 overflow-scroll max-h-screen">
           {emailArray && (

@@ -20,6 +20,7 @@
     .menu {
         display: flex;
         width: 120px;
+        min-width: 120px;
         position: static;
         height: 100vh;
     }

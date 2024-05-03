@@ -1,14 +1,14 @@
 import "./styles.css";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ isOpen }) => {
+const Navbar = ({ isOpen, toggleMenu }) => {
   const openClass = isOpen ? "open" : "";
 
   return (
     <div className={`menu ${openClass}`}>
-      <Link to="/new-email" className="pl-2 py-5 pr-5">
+      <button onClick={toggleMenu} className="pl-2 py-5 pr-5">
         New Email
-      </Link>
+      </button>
       <Link to="/" className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">
         Inbox
       </Link>

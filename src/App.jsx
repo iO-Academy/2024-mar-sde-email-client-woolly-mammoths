@@ -3,7 +3,6 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Inbox from "./components/Inbox";
 import Header from "./components/Header";
-import NewEmail from "./components/NewEmail";
 import { useState } from "react";
 import Sent from "./components/Sent";
 
@@ -19,12 +18,13 @@ function App() {
     <BrowserRouter>
       <Header toggleMenu={toggleMenu} />
       <div className="flex w-full">
-        <Navbar isOpen={isOpen} />
+        <Navbar isOpen={isOpen} toggleMenu={toggleMenu} />
+        <div>
         <Routes>
-          <Route path="/" element={<Inbox />} />
-          <Route path="/new-email" element={<NewEmail />} />
+          <Route path="/" element={<Inbox isOpen={isOpen} />} />
           <Route path="/sent" element={<Sent />} />
         </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );
