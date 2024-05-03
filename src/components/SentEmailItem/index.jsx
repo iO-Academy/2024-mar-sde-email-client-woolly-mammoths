@@ -5,12 +5,12 @@ function SentEmailItem({ data, setSentCurrentId}) {
     new Date(data.date_created).toLocaleDateString()
   );
 
-//   const readClassNames =
-//     data.read === "1" ? "bg-slate-50 text-black" : "bg-gray-500 text-white";
+  const readClassNames =
+    data.read === "1" ? "bg-slate-50 text-black" : "bg-gray-500 text-white";
 
   const handleClick = () => {
     setSentCurrentId(data.id);
-    // setRead(data.id);
+    setRead(data.id);
     console.log(data.date)
   };
 

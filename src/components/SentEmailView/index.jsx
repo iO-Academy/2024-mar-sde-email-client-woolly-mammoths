@@ -4,9 +4,10 @@ const SentEmailView = ({ id }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("https://email-client-api.dev.io-academy.uk/emails/sent" + id)
+    fetch("https://email-client-api.dev.io-academy.uk/emails/" + id)
       .then((response) => response.json())
       .then((data3) => {
+        console.log(data3)
         setData(data3.data.email);
       });
   }, [id]);

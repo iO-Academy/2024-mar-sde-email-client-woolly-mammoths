@@ -17,6 +17,13 @@ function SentEmailList() {
       });
   }, [refreshJson]);
 
+  function setRead(id) {
+    fetch("https://email-client-api.dev.io-academy.uk/emails/" + id, {
+      method: "PUT",
+    });
+    setRefreshJson(true);
+  }
+
   return (
     <div>
       <div className="flex w-full justify-between">
