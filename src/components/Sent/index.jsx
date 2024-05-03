@@ -1,11 +1,13 @@
-import SentList from "../SentList";
+
+import SentList from "../SentList/index.jsx"
 
 const Sent = () => {
-  return (
-    <div className="w-full md:w-1/3">
-      <SentList />
-    </div>
-  );
+    return (
+        <div className="w-full">
+                <SentList  />
+            </div>
+    );
 };
 
-export default Sent;
+export default Sent
+
