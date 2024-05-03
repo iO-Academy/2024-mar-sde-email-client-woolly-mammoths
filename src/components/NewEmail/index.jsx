@@ -109,7 +109,9 @@ const NewEmail = () => {
               placeholder="someone@example.com"
               className="w-full rounded border border-gray-300 p-1 my-2"
             />
-            {errorMessage !== "" && <p className="text-sm text-red">{errorMessage}</p>}
+            {errorMessage !== "" && (
+              <p className="text-sm text-red">{errorMessage}</p>
+            )}
           </div>
           <div>
             <label htmlFor="subject" className="sr-only"></label>

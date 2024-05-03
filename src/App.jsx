@@ -1,13 +1,11 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Inbox from "./components/Inbox";
 import Header from "./components/Header";
-import NewEmail from './components/NewEmail';
+import NewEmail from "./components/NewEmail";
 import { useState } from "react";
 import Sent from "./components/Sent";
-
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,17 +16,14 @@ function App() {
   };
 
   return (
-
-   
     <BrowserRouter>
       <Header toggleMenu={toggleMenu} />
       <div className="flex w-full">
         <Navbar isOpen={isOpen} />
         <Routes>
           <Route path="/" element={<Inbox />} />
-          <Route path='/new-email' element={<NewEmail />} />
+          <Route path="/new-email" element={<NewEmail />} />
           <Route path="/sent" element={<Sent />} />
-
         </Routes>
       </div>
     </BrowserRouter>
