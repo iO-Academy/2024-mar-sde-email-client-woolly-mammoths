@@ -16,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header toggleMenu={toggleMenu} />
+      {/* <Header toggleMenu={toggleMenu} /> */}
       <div className="flex w-full">
         <Navbar isOpen={isOpen} toggleMenu={toggleMenu} />
         <div>

@@ -6,16 +6,16 @@ const Navbar = ({ isOpen, toggleMenu }) => {
 
   return (
     <div className={`menu ${openClass}`}>
-      <button onClick={toggleMenu} className="pl-2 py-5 pr-5">
-        New Email
+      <button onClick={toggleMenu} className="py-5 pr-5 hover:bg-slate-800 w-full">
+        Compose
       </button>
-      <Link to="/" className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">
+      <Link to="/" className="pl-4 py-5 pr-5 hover:bg-slate-800 w-full">
         Inbox
       </Link>
-      <Link to="/sent" className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">
+      <Link to="/sent" className="pl-4 py-5 pr-5 hover:bg-slate-800 w-full">
         Sent
       </Link>
-      <p className="pl-3.5 py-5 pr-5 hover:bg-blue-500 w-full">Deleted</p>
+      <p className="pl-4 py-5 pr-5 hover:bg-slate-800 w-full">Deleted</p>
     </div>
   );
 };
