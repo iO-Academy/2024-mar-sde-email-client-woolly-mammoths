@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    background-color: #17a2b8;
+    background-color: #171e3a;
     color: white;
     width: 50%;
     position: fixed;
@@ -20,6 +20,7 @@
     .menu {
         display: flex;
         width: 120px;
+        min-width: 120px;
         position: static;
         height: 100vh;
     }

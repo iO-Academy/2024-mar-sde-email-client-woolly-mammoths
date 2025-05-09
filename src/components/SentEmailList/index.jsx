@@ -1,27 +1,27 @@
-import EmailItem from "../EmailItem";
+import SentEmailItem from "../SentEmailItem";
 import { useEffect, useState } from "react";
-import EmailView from "../EmailView";
+import SentEmailView from "../SentEmailView";
 
-function EmailList() {
-  const [emailArray, setEmailArray] = useState(false);
+function SentEmailList() {
+  const [sentEmailArray, setSentEmailArray] = useState(false);
   const [refreshJson, setRefreshJson] = useState(false);
-  const [currentID, setCurrentID] = useState(0);
+  const [sentCurrentID, setSentCurrentID] = useState(0);
   const [emailItemWidth, setEmailItemWidth] = useState("w-full");
   const [emailViewWidth, setEmailViewWidth] = useState("w-0");
   const [buttonClass, setButtonClass] = useState("hidden");
 
   useEffect(() => {
-    fetch("https://email-client-api.dev.io-academy.uk/emails")
+    fetch("https://email-client-api.dev.io-academy.uk/emails/sent")
       .then((response) => response.json())
       .then((data) => {
-        setEmailArray(data);
+        setSentEmailArray(data);
         setRefreshJson(false);
-        return emailArray;
+        return sentEmailArray;
       });
   }, [refreshJson]);
 
   function closeEmail() {
-    setCurrentID(0);
+    setSentCurrentID(0);
     setEmailItemWidth("w-full");
     setEmailViewWidth("w-0");
     setButtonClass("hidden");
@@ -35,17 +35,17 @@ function EmailList() {
   }
 
   return (
-    <div className="z-10">
-      <div className="flex">
+    <div>
+      <div className="flex w-full justify-between">
         <div className="md:w-2/6 overflow-scroll max-h-screen">
-          {emailArray && (
+          {sentEmailArray && (
             <div>
-              {emailArray.data.map((email) => {
+              {sentEmailArray.data.map((email) => {
                 return (
-                  <EmailItem
+                  <SentEmailItem
                     data={email}
                     key={email.id}
-                    setCurrentId={setCurrentID}
+                    setSentCurrentId={setSentCurrentID}
                     setRead={setRead}
                     setEmailItemWidth={setEmailItemWidth}
                     setEmailViewWidth={setEmailViewWidth}
@@ -58,9 +58,9 @@ function EmailList() {
           )}
         </div>
         <div className={`${emailViewWidth} md:w-4/6`}>
-          {currentID !== 0 && (
-            <EmailView
-              id={currentID}
+          {sentCurrentID !== 0 && (
+            <SentEmailView
+              id={sentCurrentID}
               closeEmail={closeEmail}
               buttonClass={buttonClass}
             />
@@ -71,4 +71,4 @@ function EmailList() {
   );
 }
 
-export default EmailList;
+export default SentEmailList;
